@@ -4,7 +4,9 @@ import requests
 import re
 import bs4
 
-url = "https://citysmile.ru"
+url = "https://livehdcams.com"
+#"https://citysmile.ru"
+# https://livehdcams.com
 
 headers = {
     "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/109.0"}
@@ -24,30 +26,30 @@ else:
     #content = [str(tag['content']) for tag in links if tag['name'] in ['keywords', 'description']]
     
     # Header :
-    #tags = soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6", "body"])
-    #tags = soup.find_all("head")
+    tags = soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6", ])
+    tags = soup.find_all("head")
     #sur chaque header on retire toutes les balises html pour rester avec le text. (.stripped_strings) 
-    #content = [" ".join(tag.stripped_strings) for tag in tags]
-    #print(content)
+    content = [" ".join(tag.stripped_strings) for tag in tags]
+    print(content)
   
     #content = " ".join(soup.title.contents) if soup.title is not None and "title" in soup.html else ""
     #print(content)
 
     # content :
-    tags_to_ignore = ["h1", "h2", "h3", "h4", "h5","h6", "noscript", "style", "script", "head", "title", "meta", "[document]"]
-    tags = soup.find_all(text=True)
-    #print(tags)
-    result = []
-    for tag in tags:
-        stripped_tag = tag.strip()
-        if (
-            tag.parent.name not in tags_to_ignore
-            and not isinstance(tag, bs4.element.Comment)
-            and not stripped_tag.isnumeric()
-            and len(stripped_tag) > 0
-            ):
-            result.append(stripped_tag)
-    print(" ".join(result))
+    #tags_to_ignore = ["h1", "h2", "h3", "h4", "h5","h6", "noscript", "style", "script", "head", "title", "meta", "[document]"]
+    #tags = soup.find_all(text=True)
+    ##print(tags)
+    #result = []
+    #for tag in tags:
+    #    stripped_tag = tag.strip()
+    #    if (
+    #        tag.parent.name not in tags_to_ignore
+    #        and not isinstance(tag, bs4.element.Comment)
+    #        and not stripped_tag.isnumeric()
+    #        and len(stripped_tag) > 0
+    #        ):
+    #        result.append(stripped_tag)
+    #print(" ".join(result))
     
     #language Selection :
     #try:
